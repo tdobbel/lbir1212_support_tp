@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP6</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP6: Couples aléatoires</h1>
+
+    <!--Question 6-2 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>6-2. </strong> Soit un couple aléatoire $(X, Y)$ avec $p(x, y)$ donné par :
+            $$p(x,)=\left\{\begin{array}{ll}k/xy & x=1,2,3 \quad y=1,2 \\ 0 & \text{ailleurs}\end{array}\right.$$
+            </p>
+            <ol class="alpha">
+                <li> Déterminez la valeur de $k$ </li>
+                <li> Déterminez la fonction de probabilité marginale de $X$ </li>
+                <li> Calculez les probabilités suivantes: </li>
+                <ol class="roman flex-ol">
+                    <li> $P(X < 2)$ </li>
+                    <li> $P(X = 2 \cap Y = 1)$ </li>
+                    <li> $P(X + Y < 3)$ </li>
+                </ol>
+                <li> Les variables $X$ et $Y$ sont-elles indépendantes? Justifiez. </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+    </div>
+    <p></p>
+
+    <!--Question 6-3 (a,d) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>6-3. </strong>  Soit $(X, Y)$ un couple aléatoire distribué uniformément sur un domaine $D$, avec $f(x, y) = k$ sur $D$ et $f(x, y) = 0$ ailleurs. Pour chacun des cas suivants :</p>
+            <ol class="alpha flex-ol">
+                <li> $0 < x < y < 1$ </li>
+                <li class="hidden"></li>
+                <li class="hidden"></li>
+                <li> $-1 < x < 1,~|y| < |x|$</li>
+            </ol>
+            <ol class="roman">
+                <li> Représentez le domaine $D$ et déterminez la valeur de $k$. </li>
+                <li> Déterminez la distribution marginale de $X$. </li>
+                <li> Déterminez la distribution conditionnelle de $Y$. </li>
+                <li> Représentez les événements suivants et calculez leur probabilité: </li>
+                <ol class="arabic flex-ol">
+                    <li> $A \equiv (Y < 0.5)$ </li>
+                    <li> $B \equiv (X < 0.5)$ </li>
+                    <li> $C \equiv (A \cap B)$ </li>
+                    <li> $D \equiv (A \cup B)$ </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 6-11 (b,d) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>6-11. </strong> Pour chacun des couples aléatoires $(X, Y)$ suivants : </p>
+            <ol class="alpha">
+                <li class="hidden"></li>
+                <li> $f(x,y) = \left\{\begin{array}{ll} k & 0 < x < 1, x^2 < y < x \\ 0 & \text{ailleurs}\end{array}\right.$</li>
+                <li class="hidden"></li>
+                <li>
+                    $f_X(x) = \left\{\begin{array}{ll} ax & 0 < x < 2 \\ 0 & \text{ailleurs}\end{array}\right.$;
+                    $f_Y(y|x) = \left\{\begin{array}{ll} b & x-1 < y < x+1, 0 < x <2 \\ 0 & \text{ailleurs}\end{array}\right.$
+                </li>
+            </ol>
+            <p> Calculez </p>
+            <ol class="roman">
+                <li> l'espérance de $X$ et de $Y$; </li>
+                <li> la variance de $X$ et de $Y$; </li>
+                <li> la covariance et le coefficient de corrélation entre $X$ et $Y$; </li>
+                <li> la régression de $X$ sur $Y$ et la régression de $Y$ sur $X$. </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 6-19 (a,b) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>6-19. </strong> On soumet un échantillon de sol sec d’une région donnée à une analyse granulométrique qui donne ses pourcentages $X$ de sable, $Y$ de limon et $Z$ d’argile (avec $X + Y + Z = 1$). Le couple $(X, Y)$ est tel que :
+            $$
+                f_Y(y) = \left\{\begin{array}{ll} 6y(1-y) & 0 < y < 1 \\ 0 & \text{ailleurs}\end{array}\right.;~
+                f_X(x|y) = \left\{\begin{array}{ll} \dfrac{1}{1-y} & 0 < x < 1-y, 0 < y < 1 \\ 0 & \text{ailleurs}\end{array}\right.
+            $$
+            </p>
+            <ol class="alpha">
+                <li> Calculez la probabilité des événements suivants: </li>
+                <ol class="roman flex-ol">
+                    <li> $Y \in [0.2, 0.5]$ </li>
+                    <li> $X < 0.5$ sachant que $Y=0.2$ </li>
+                    <li> $X > Y$ </li>
+                </ol>
+                <li> Calculez $\mathbb{E}[X]$ sans déterminer la fonction de densité de probabilité de $X$. </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+</body>
+</html>

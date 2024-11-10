@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP4</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP4: Variables aléatoires et grandeurs caractéristiques</h1>
+
+    <!--Question 3-28 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class=question-content>
+            <p><strong>3-28. </strong> Soit une maladie touchant en moyenne 5 animaux sur mille dans un cheptel bovin.</p>
+            <ol class="alpha">
+                <li> On choisit au hasard $n$ bovins et $X$ est le nombre d’animaux malades. </li>
+                <ol class="roman">
+                    <li> Si $n = 10$, calculez (à $10^{-3}$ près) les probabilités $P(X = 0)$ et $P(X \geq 1)$.</li>
+                    <li> Déterminez $n$ pour que l’espérance de $X$ soit égale à $0.10$. </li>
+                </ol>
+                <li> La probabilité qu’un animal malade soit testé positif est de $0.8$ et celle d’être testé négatif est de $0.9$ pour un animal sain. Si $T \equiv$ ”être testé positif ” et $M \equiv$ ”être malade”,</li>
+                <ol class="roman">
+                    <li> calculez la probabilité d'être testé positif;</li>
+                    <li> calculez la probabilité qu’un animal soit malade si le test est positif;</li>
+                <ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+        <h3> Loi binomiale</h3>
+        <p> $X$ est le nombre de succès parmis $n$ avec une probabilité $p$ de succès. $$p(x) = C_{n}^x p^x (1-p)^{n-x}$$ <p>
+
+        <div style="text-align:center;">
+            <img src="figures/binomial_example.png" style="width:55%">
+        </div>
+
+        <p> L'espérance $\mu = \mathbb{E}[X] = \sum_{i=1}^n x_ip(x_i)$ est le centre de gravité de la fonction $p(x)$.  $$X\sim Bi(n,p) \Rightarrow \mathbb {E}[X] = np$$ </p>
+
+        <h3>Théorème de Bayes</h3>
+        <p> $$P(A|B) = \dfrac{P(A \cap B)}{P(B)} \Leftrightarrow P(A \cap B) = P(A|B)P(B) $$ </p>
+        <p> $$P(B|A) = \dfrac{P(A\cap B)}{P(A)} \Rightarrow P(B|A) = \dfrac{P(A|B)P(B)}{P(A)}$$</p>
+    </div>
+    <p></p>
+
+    <!--Question 3-31 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>3-31. </strong> Pour se rendre à son travail, une personne a le choix entre deux chemins $A$ et $B$. La durée de parcours (en minutes) est une loi normale de paramètres $\mu = 55$ et $\sigma = 10$ pour le chemin $A$ et $\mu = 60$ et $\sigma = 4$ pour le chemin $B$. Quel chemin doit-on choisir pour minimiser le risque d’être en retard si l’on dispose de (a) 60 minutes ? (b) 65 minutes ? </p>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi normale</h3>
+        <p>$$f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\dfrac{1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2}\quad \forall x\in\mathbb{R}$$</p>
+        <div style="text-align: center">
+            <img src="figures/normal_black.png" style="width:65%">
+        </div>
+        <p>Loi réduite pour l'utilisation de tables $X\sim N(\mu,\sigma^2) \Rightarrow Z = \dfrac{X-\mu}{\sigma} \sim N(0,1)$</p>
+        <div style="text-align:center">
+            <img src="figures/normal_table_black.png" style="width:90%">
+        </div>
+    </div>
+    <p></p>
+
+    <!--Question 3-35 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <strong>3-35. </strong> Une classe compte 30 élèves dont 20 filles. Lors de chaque cours, le professeur interroge un élève au hasard. D’un cours à l’autre, il oublie qui étaient les élèves interrogés lors des cours précédents. Soit $X$ le nombre de filles interrogées durant $n$ cours de mathématiques consécutifs.
+            </p>
+            <ol class="alpha">
+                <li> Quelle est la loi de probabilité de $X$ ?</li>
+                <li> Quelle est la probabilité que 4 filles soient interrogées sur un total de 10 cours consécutifs ?</li>
+                <li> Quelle est la plus petite valeur $n$ telle que la probabilité qu’aucune fille ne soit interrogée soit inférieure à $0.001$&nbsp;?</li>
+                <li> Durant un trimestre, il y a 36 cours de mathématiques. A quel nombre de filles interrogées doit-on s’attendre en moyenne&nbsp;?</li>
+            <ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%">
+            <div style="width:48%">
+                <h3>$X$ est une variable DICRÈTE</h3>
+                <ul>
+                    <li> nombre de succès parmi $n$ essais<br>$\Rightarrow X\sim Bi(n,p)$</li>
+                    <li> nombre d'essais jusqu'au 1<sup>er</sup> succès<br> $\Rightarrow X\sim Ge(p)$</li>
+                    <li> nombre d'essais jusqu'au k<sup>ème</sup> succès<br> $\Rightarrow X\sim Pa(k,p)$</li>
+                    <li> nombre de réalisations sur un support<br> $\Rightarrow X\sim Po(\mu)$</li>
+                <ul>
+            </div>
+            <div style="width:48%; text-align:justify">
+                <h3>$X$ est une variable CONTINUE</h3>
+                <ul>
+                    <li> chaque valeur $x$ sur un <strong>intervalle</strong> a la <strong>même chance</strong> d'apparaître<br>$\Rightarrow X\sim Un(a,b)$</li>
+                    <li> processus <strong>sans mémoire</strong> / temps entre deux réalisations d'un loi de <strong>Poisson</strong><br>$\Rightarrow X\sim Exp(\lambda)$</li>
+                    <li> le processus est la somme d’effets issus d’un grand nombre de causes agissant indépendamment <br> $\Rightarrow X\sim N(\mu,\sigma^2)$</li>
+                </ul>
+            </div>
+        </div>
+        <p></p>
+        <div style="text-align: center">
+            <img src="figures/binomial2.png" style="width:55%">
+        </div>
+    </div>
+    <p></p>
+
+    <!--Question 3-55 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>3-55. </strong> La durée de vie $X$ (en heures) d’un composant est une variable aléatoire telle que:
+            $$f(x) =  \left\{\begin{array}{ll} 0.01x\exp(-0.1x) & x > 0 \\ 0 & \text{ailleurs}\end{array}\right.$$</p>
+            <ol class="alpha">
+                <li> Quelle est la probabilité qu’un composant fonctionne plus de 10 heures ? </li>
+                <li> Un appareil comprend 3 de ces composants montés en série; quelle est la probabilité que l’appareil fonctionne encore après 10 heures&nbsp;? </li>
+                <li> Quelle est cette probabilité si les 3 composants sont montés en parallèle ? </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <div style="text-align: center">
+            <img src="figures/fig_question_355.png" style="width:55%">
+        </div>
+    </div>
+    <p></p>
+
+    <!--Question 4-3 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>4-3. </strong> Un article en stock fait l’objet d’une demande journalière $X$, avec:</p>
+            <table>
+                <tr style="border-bottom: 1px solid">
+                    <td style="border-right: 1px solid"> $x$ </td> <td> 0 </td> <td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid"> $p(x)$ </td> <td> 0.1 </td> <td> 0.2 </td> <td> 0.3 </td> <td> 0.2 </td> <td> 0.1 </td> <td> 0.1 </td>
+                </tr>
+            </table>
+            <p> Calculez la moyenne et la variance de $X$. </p>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3> Espérance $\mu$ ou $\mathbb{E}[X]$</h3>
+
+        <p>$$\mu = \mathbb{E}[X] = \left\{\begin{array}{ll}\sum_{i=1}^n x_ip(x_i) & \text{cas discret} \\ \int_{-\infty}^{\infty}xf(x)dx & \text{cas continu}\end{array}\right.$$</p>
+
+        <h3> Variable $\sigma^2$ ou Var[X] </h3>
+
+        <p>$$\sigma^2 = Var[X] = \left\{\begin{array}{ll}\sum_{i=1}^n (x_i-\mu)^2p(x_i) & \text{cas discret} \\ \int_{-\infty}^{\infty}(x-\mu)^2f(x)dx & \text{cas continu}\end{array}\right. = \mathbb{E}[X^2] - \mathbb{E}[X]^2$$</p>
+    </div>
+
+    <p></p>
+
+    <!--Question 4-4 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>4-4. </strong> Calculez l’espérance, la variance et la médiane des distributions suivantes:</p>
+            <ol class="alpha">
+                <li> $f(x)=\left\{\begin{array}{ll}1/a & 0 < x < a \\ 0 & \text{ailleurs}\end{array}\right.$</li>
+                <li> $f(x)=\left\{\begin{array}{ll}2x^{-a} & 0 < x < a \\ 0 & \text{ailleurs}\end{array}\right.$</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3> Loi uniforme </h3>
+
+        <p> $$\begin{align}X \sim Un(a,b) &\Rightarrow f(x) = \dfrac{1}{b-a} \quad \forall x \in [a,b] \\ &\Rightarrow \mathbb{E}[X] = \dfrac{b-a}{2},\quad Var[X] = \dfrac{(b-a)^2}{12} \end{align}$$ </p>
+        <h3>Quantile $x_p$</h3>
+
+        <p>$$P(X \leq x_p) = F(x_p) = p$$</p>
+
+        <h3>Médiane $\tilde{m}$ ($= x_{0.5}$)</h3>
+
+        <p>$$P(X\leq\tilde{m}) = F(\tilde{m}) = \dfrac{1}{2}$$</p>
+    <div>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP3</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP3: Variables aléatoires</h1>
+
+    <h2>Récapitulatif de la semaine passée</h2>
+
+    <p> La semaine passée, nous avons vu les lois de probabilité suivantes: </p>
+    <ul>
+        <li> $X \sim Bi(n,p)$ Nombre de succès parmi $n$ essais; <br><span style="margin-left:1em"></span> $p(x) = C_n^x p^x (1-p)^{n-x} $</li>
+        <li> $X \sim Ge(p)$ Nombre d'essais jusqu'au premier succès;<br><span style="margin-left:1em"></span> $p(x) = p (1-p)^{x-1} \qquad F(x) = 1 - (1-p)^x$</li>
+        <li> $X \sim Pa(k, p)$ Nombre d'essais jusqu'au $k$<sup>ème</sup> succès;<br><span style="margin-left:1em"></span> $p(x) = C_{x-1}^{k-1} p^k(1-p)^{x-k}$ </li>
+        <li> $X \sim Po(\mu)$ Nombre de réalisations sur un support.<br><span style="margin-left:1em"></span> $p(x) = \dfrac{e^{-\mu}\mu^x}{x!}$</li>
+    </ul>
+
+    <!--Question 3-43 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-43. </strong> Soit $X$ une loi uniforme sur l’intervalle $[0, 5]$. Soient les évéements $A = (X < 3)$ et $B = (X > 2)$. Calculez les probabilités suivantes :</p>
+            <ol class="alpha flex-ol">
+                <li> $P(A)$ </li>
+                <li> $P(A\cup B)$ </li>
+                <li> $P(A\cap B)$ </li>
+                <li> $P(A | A \cup B)$ </li>
+                <li> $P(B | A \cap B)$ </li>
+                <li> $P(A \cap B | A \cup B)$ </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+        <h3 class="title">Loi uniforme</h3>
+
+        <p> $$X \sim Un(a,b) : \qquad f(x) = \dfrac{1}{b-a}  \qquad F(x) = \int_{-\infty}^x f(t)~dt = \dfrac{x-a}{b-a} \qquad \forall x \in [a,b]$$</p>
+        <div style="text-align:center">
+            <img style="width: 70%" src="figures/uniform_black.png">
+        </div>
+        <p> <strong>Remarque:</strong> Pour une variable aléatoire continue, $P(X = x) = 0 \Leftrightarrow P(X < x) = P(X \leq x)$ </p>
+    </div>
+    <p></p>
+
+    <!--Question 3-10 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-10. </strong> Soit $X$ une loi uniforme sur l’intervalle $[−a, +a]$ avec $a > 1$. Trouvez les valeurs $a$ telles que soient satisfaites, si possible, les relations suivantes :</p>
+            <ol class="alpha flex-ol">
+                <li> $P(X > 1) = 0.2$ </li>
+                <li> $P(X < 1) = 0.7$ </li>
+                <li> $P(0 < X < 0.5) = 0.3$ </li>
+                <li> $P(|X| < 1) = P(|X| > 1)$ </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 3-11 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-11. </strong> Soit $X$ une loi normale de paramètres $\mu$ et $\sigma^2$.</p>
+            <ol class="alpha">
+                <li> Lorsque $\mu=50$ et $\sigma^2=25$, calculez: </li>
+                <ol class="roman flex-ol">
+                    <li> $P(X < 58)$ </li>
+                    <li> $P(X > 46)$ </li>
+                    <li> $P(50 < X < 58)$ </li>
+                    <li> $P(X > 44 | X < 52)$ </li>
+                </ol>
+                <li> Si $\mu = 20$ et $\sigma^2= 100$, déterminez $x$ pour chaque cas suivant : </li>
+                <ol class="roman flex-ol">
+                    <li> $F(x) = 0.80$ </li>
+                    <li> $F(x) = 0.24$ </li>
+                    <li> $P(X > x) = 0.9$ </li>
+                    <li> $P(20 − x < X < 20 + x) = 0.5$ </li>
+                </ol>
+                <li> Lorsque $\sigma = 10$ et $P (X \geq 35) = 0.60$, calculez la valeur de $\mu$. </li>
+                <li> Lorsque $F(8.368) = 0.20$ et $P(X > 11.632) = 0.20$, trouvez $\mu$ et $\sigma$. </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi normale</h3>
+        <p>$$f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\dfrac{1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2}\quad \forall x\in\mathbb{R}$$</p>
+        <div style="text-align: center">
+            <img src="figures/normal_black.png" style="width:65%">
+        </div>
+        <p>Loi réduite pour l'utilisation de tables $X\sim N(\mu,\sigma^2) \Rightarrow Z = \dfrac{X-\mu}{\sigma} \sim N(0,1)$</p>
+        <h4> Loi normale réduite $Z\sim N(0,1)$ - fonction $F(z)$ </h4>
+        <p>Par symétrie, $P(Z < z) = P(Z > -z)$</p>
+        <div style="text-align:center">
+            <img src="figures/normal_table_black.png" style="width:90%">
+        </div>
+        <h4> Loi normale réduite $Z\sim N(0,1)$ - quantiles $z_p$ </h4>
+        <div style="text-align:center">
+            <img src="figures/normal_quantiles_black.png" style="width:90%">
+        </div>
+
+    </div>
+    <p></p>
+
+    <!--Question 3-29 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-29. </strong> Pour un appareil déterminé, le temps de fonctionnement (en heures) séparant deux pannes consécutives est une loi exponentielle de paramètre $\lambda = 0.02$ heures<sup>−1</sup>.</p>
+            <ol class="alpha">
+                <li> Quelle est la probabilité que la durée de fonctionnement entre deux pannes soit supérieure à 50 heures? </li>
+                <li> Après 50 heures, l’appareil est toujours en état de fonctionnement ; quelle est la probabilité qu’il ne tombe pas en panne avant la 60ème heure?</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3 class="title"> Loi exponentielle </h3>
+        <p> $$X \sim Exp(\lambda): \qquad f(x) = \lambda e^{-\lambda x}  \qquad F(x) = 1-e^{-\lambda x} \qquad \forall x \in [0,\infty)$$ </p>
+        <div style="text-align:center">
+            <img style="width: 70%" src="figures/exponential_black.png">
+        </div>
+        <p> Processus sans mémoire: $P(X > k+x | X > k) = P(X > x)$</p>
+        <p> Soit un processus se déroulant dans le temps. Soit $X \sim Exp(\lambda)$ le temps séparant deux occurrences. Si $Y$ est le nombre d’occurrences sur un intervalle $[0, x]$, alors $Y \sim Po(\lambda x)$</p>
+    </div>
+    <p></p>
+
+    <!--Question 3-18 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-18. </strong> L’examen théorique du permis de conduire comporte 40 questions à 3 alternatives. Il faut 32 bonnes réponses au moins pour le réussir.</p>
+            <ol class="alpha">
+                <li style="font-size:0em"></li>
+                <li> Parmi les 3 alternatives, une est visiblement fausse; il est facile de la détecter avec un peu de bon sens. Si l’on répond au hasard en choisissant une des deux autres possibilités, quelle est la probabilité de réussir l’examen ? </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3> Approximation d'une loi par une autre</h3>
+        <div style="text-align:center">
+            <img style="width: 70%" src="figures/approx_black.png">
+        </div>
+       <p> Quand les tables ne sont pas assez précises, Python (ou R) est votre ami.</p>
+<pre><code class="python" data-trim data-line-numbers>from math import sqrt
+from scipy.stats import norm
+
+print(1-norm.cdf(32, loc=40, scale=sqrt(10))
+# 7.390115516725526e-05</code></pre>
+    </div>
+    <p></p>
+</body>
+</html>

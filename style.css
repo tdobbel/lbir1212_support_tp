@@ -1,0 +1,74 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: "Montserrat";
+    font-size: 1.8em;
+    padding: 2.5em;
+}
+.question {
+    border: 1px solid;
+}
+.question-content {
+    margin-right: 1em;
+    margin-left: 1em;
+    text-align: justify;
+}
+.display-button-div {
+    text-align: right;
+    font-size: 0.5em;
+}
+.hidden {
+    font-size: 0em;
+}
+li {
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+}
+ol.alpha {
+    list-style-type: none;
+    counter-reset: alpha;
+}
+ol.alpha > li:before {
+    counter-increment: alpha;
+    content: "("counter(alpha, lower-alpha)") ";
+}
+ol.roman {
+    list-style-type: none;
+    counter-reset: roman;
+}
+ol.roman > li:before {
+    counter-increment: roman;
+    content: "("counter(roman, lower-roman)") ";
+}
+ol.arabic {
+    list-style-type: none;
+    counter-reset: arabic;
+}
+ol.arabic > li:before {
+    counter-increment: arabic;
+    content: "("counter(arabic, decimal)") ";
+}
+.flex-ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+table {
+    border-collapse: collapse;
+}
+td {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.left-col {
+    border-right: 1px solid;
+}
+button {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+pre > code {
+    font-family: "JetBrainsMono Nerd Font Mono", "Ubuntu Mono", "Consolas",  monospace;
+}

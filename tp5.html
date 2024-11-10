@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP5</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP5: Fonction d'une variable</h1>
+
+    <!--Question 5-1 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>5-1. </strong> Soit $X$ une loi discrète dont la fonction de probabilité est donnée par: $$p(x)=\left\{\begin{array}{ll} kx^2 & x=-2,-1,0,1,2 \\ 0 & \text{ailleurs}\end{array}\right.$$</p>
+            <ol class="alpha">
+                <li> Calculez $\mathbb{E}[X]$, $Var[X]$ et $\mathbb{E}[|X|]$ </li>
+                <li> Soit $Y=X+2$; calculez $\mathbb{E}[Y]$ et $Var[Y]$</li>
+                <li> Soit $Z=5X$; calculez $\mathbb{E}[Z]$ et $Var[Z]$</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+        <h3>Espérance d'une variable $Y=h(X)$</h3>
+        <p>$$\mathbb{E}[Y]=\mathbb{E}[h(X)] = \left\{\begin{array}{ll}
+            \sum_{i=1}^nh(x_i)p(x_i) & \text{cas discret} \\
+            \int_{-\infty}^{\infty} h(x)f(x)dx & \text{cas continu}
+        \end{array}\right.$$</p>
+        <h3>Variance d'une variable $Y=h(X)$</h3>
+        <p>$$Var[Y]=Var[h(X)]=\mathbb{E}[h^2(X)]-\mathbb{E}^2[h(X)]$$</p>
+    </div>
+    <p></p>
+
+    <!--Question 5-3 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>5-3. </strong>  Si $X$ est une loi uniforme sur l’intervalle $[0, 1]$, déterminez les fonctions de densité de probabilité des variables aléatoires suivantes :</p>
+            <ol class="alpha flex-ol">
+                <li> $Y=3X$ </li>
+                <li> $Z=X+5$</li>
+                <li> $U=X^3$</li>
+                <li> $V=X^{-1}$</li>
+                <li> $W=-5\ln X$</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Fonction $h(\cdot)$ strictement monotone ($\nearrow$ or $\searrow$)</h3>
+        <p>$$f_{Y}(y) = f_X(h^{-1}(y))\left|\dfrac{dh^{-1}(y)}{dy}\right|$$</p>
+    </div>
+    <p></p>
+
+    <!--Question 5-4 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>5-4. </strong> Soit $X$ une loi uniforme sur l’intervalle $[−1, 1]$. Si $Y = X^2$, quelle est la fonction de densité de probabilité de $Y$ ?</p>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 5-5 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>5-5. </strong> On arrondit 50 nombres à l’entier le plus proche et l’on effectue leur somme. Si les erreurs d'arrondi individuelles sont distribuées uniformément sur l’intervalle $[−0.5, 0.5]$, quelle est la probabilité que la somme obtenue s'éloigne de plus de 3 par rapport à la somme exacte ? </p>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+</body>
+</html>

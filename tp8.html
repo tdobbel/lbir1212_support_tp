@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP8</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP8: Vecteurs aléatoires</h1>
+
+    <!--Question 7-6 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>7-6. </strong>  Dans une région donnée, la pluviométrie (en millimètres) des mois de juillet, août et septembre forme un vecteur aléatoire $(X_1 , X_2 , X_3)'$ dont les espérances sont égales à $(40, 50, 60)'$ et dont les écarts-type sont égaux à $(3, 4, 5)'$. Les coefficients de corrélation sont de $0.5$, $0.1$ et $-0.5$ entre juillet et août, entre août et septembre, et entre juillet et septembre, respectivement.</p>
+            <ol class="alpha">
+                <li> Donnez les valeurs de $\mathbb{E}[\mathbf{X}]$ et $Cov[\mathbf{X}]$. </li>
+                <li>  Ecrivez la transformation linéaire $\mathbf{Y} = \mathbf{AX}$ donnant conjointement la somme et la différence des pluviométries entre les mois de septembre et de juillet.</li>
+                <li> Calculez $\mathbb{E}[\mathbf{Y}]$ et $Cov[\mathbf{X}]$ à partir de $\mathbb{E}[\mathbf{X}]$ et $Cov[\mathbf{X}]$ </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+    </div>
+    <p></p>
+
+    <!--Question 7-7 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>7-7. </strong> Soient des arbres dans une population d’épicéas de même âge non soumise à éclaircie pour lesquels on mesure l’accroissement annuel moyen $Y_1$ (en cm) et la profondeur de pénétration $Y_2$ (en mm) de l’aiguille d’un PILODYN (appareil servant à estimer la densité du bois). On considère que :
+            $$\mathbf{Y}=\begin{pmatrix}Y_1\\ Y_2\end{pmatrix} \sim N\left(\begin{pmatrix}1.3\\ 22.2\end{pmatrix}, \begin{pmatrix} 0.3 & 0.9 \\ 0.9 & 5\end{pmatrix}\right)$$
+            </p>
+            <p> Calculez les valeurs suivantes : </p>
+            <ol class="alpha">
+                <li> le coefficient de corrélation entre $Y_1$ et $Y_2$; </li>
+                <li> les espérances de $\mathbb{E}[Y_1^2]$ et $\mathbb{E}[Y_2^2]$; </li>
+                <li> l'espérance $\mathbb{E}[Y_2 | y_1]$ et la variance $Var[Y_2 | y_1]$ quand $y_1=2$ cm; </li>
+                <li> les probabilités (i) $P(Y_2 > 23)$, (ii) $P(Y_2 > 23 | Y_1 = 2)$.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 7-9 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>7-9. </strong>  Pour évaluer la fertilité d’une région donnée, des échantillons de sols sont prélevés sur des parcelles au printemps et à l’automne. Pour chaque échantillon, le carbone organique C et l’azote N sont dosés. Soit le vecteur normal $X = (X_1 , X_2 , X_3 , X_4)'$ où $X_1$ , $X_3$ sont les teneurs en C au printemps et en automne, et $X_2$ , $X_4$ sont les teneurs en N au printemps et en automne. On sait que $\mathbb{E}[\mathbf{X}] = (28.6, 12.8, 42.1, 16.5)'$ et que :
+            $$Cov[\mathbf{X}] = \begin{pmatrix}
+                3.45 & 1.58 & 4.21 & 1.28 \\
+                1.58 & 1.26 & 1.44 & 1.21 \\
+                4.21 & 1.44 & 5.92 & 2.04 \\
+                1.28 & 1.21 & 2.04 & 1.48
+            \end{pmatrix}$$
+            </p>
+            <ol class="alpha">
+                <li> Calculez la probabilité que $X_1 − X_2$ soit inférieur à $12.25$. </li>
+                <li> Calculez le coefficient de corrélation entre $X_1 + X_2$ et $X_3 + X_4$. </li>
+                <li> Quelle est la valeur attendue de $X_4$ lorsque $X_2 = 39.6$ ? </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+
+    <!--Question 7-10 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>7-10. </strong>  Pour étudier la dynamique de l’azote minéral N dans un sol donné, des dosages (en mg de N par kg de sol) sont effectués dans l’horizon racinaire quatre fois par an, du printemps $X_1$ à l’hiver $X_4$. On pose que $\mathbf{X} = (X_1 , \cdots , X_4)'$ est un vecteur normal dont les moyennes et variances sont données par : </p>
+                <table style="margin: auto">
+                    <tr style="border-bottom: 1px solid">
+                        <td class="left-col"> Saison </td> <td> $\mu$ </td> <td> $\sigma^2$ </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $X_1$ </td> <td> 53 </td> <td> 150 </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $X_2$ </td> <td> 35 </td> <td> 87 </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $X_3$ </td> <td> 68 </td> <td> 246 </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $X_4$ </td> <td> 42 </td> <td> 125 </td>
+                    </tr>
+                </table>
+            <p> et dont les coefficients de corrélation sont donnés par :
+            $$\begin{array} {lll}
+                \rho_{X_1 X_2} = 0.8; & \rho_{X_2 X_3} = 0.5; & \rho_{X_3 X_4} = 0.9; \\
+                \rho_{X_1 X_3} = 0.4; & \rho_{X_1 X_4} = 0.2; & \rho_{X_2 X_4} = 0.4;
+            \end{array}$$
+            </p>
+            <ol class="alpha">
+                <li> Donnez la matrice de covariance du vecteur aléatoire. </li>
+                <li> Quelle est la probabilité que la teneur dépasse à 40 mg/kg en été si elle est de 55 mg/kg au printemps ? </li>
+                <li> Soient $Y_1$ la teneur moyenne sur l’année et $Y_2$ la différence entre la teneur en hiver et au printemps. Quelle est la corrélation entre $Y_1$ et $Y_2$ ?</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+    </div>
+    <p></p>
+</body>
+</html>

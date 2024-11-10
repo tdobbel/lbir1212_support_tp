@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LBIR1212 - TP2</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="display.js"></script>
+</head>
+<body>
+
+    <h1>LBIR1212 - TP2: Variables aléatoires</h1>
+
+    <!--Question 3-1 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-1. </strong> Soit $X$ une variable aléatoire telle que :
+            $$p(x)=\left\{\begin{array}{ll} k/x & x\in\{1,2,3,4,5\} \\ 0 & \text{ailleurs}\end{array}\right.$$ </p>
+            <ol class="alpha">
+                <li> Déterminez la valeur de $k$. </li>
+                <li> Calculez</li>
+                <ol class="roman flex-ol">
+                    <li> $P(X\leq3)$ </li>
+                    <li> $P(1 < X \leq 4)$ </li>
+                    <li> $P(X \geq 2)$ </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none">
+        <h3>Fonction de probabilité $p(x)$</h3>
+        <p>Fonction donnant $\forall x \in\mathbb{R}$ la probabilité $P(X=x)$
+        $$p(x) = \left\{\begin{array}{ll} P(X=x) & \text{pour }x\in R_X \\ 0 & \text{pour }x\notin R_X\end{array}\right.$$
+        </p>
+        <ul>
+            <li> ses valeurs sont non negatives: $p(x) \geq 0 \forall x \in \mathbb{R}$ </li>
+            <li> la somme des probabilités vaut 1: $\sum_{x\in \mathbb{R}} p(x) = 1$ </li>
+            <li> la probabilité d'un événement $B \subset R_X$ est : $P(B) = \sum_{x\in B} p(x)$ </li>
+        </ul>
+        <h3>Fonction de répartition $F(x)$</h3>
+        <p> Fonction donnant $\forall x \in\mathbb{R}$ la probabilité $P(X\leq x)$ correspondante:
+        $$F(x) = P(X\leq x) \quad \forall x \in \mathbb{R}$$ </p>
+    </div>
+    <p></p>
+
+    <!--Question 3-3 -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>3-3. </strong> Soit $X$ une loi binomiale pour laquelle $n = 5$.</p>
+            <ol class="alpha">
+                <li> Calculez et représentez les fonctions $p(x)$ et $F(x)$ quand $p = 0.1$, $0.5$ et $0.75$. </li>
+                <li> Lorsque $p=0.1$, calculez</li>
+                <ol class="roman flex-ol">
+                    <li> $P(X < 2)$</li>
+                    <li> $P(X \geq 3)$</li>
+                    <li> $P(2 \leq X \leq 5)$</li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi binomiale $X\sim Bi(n,p)$</h3>
+        <p> On répète une expérience aléatoire avec probabilité de succès $n$ fois de façon indépendante. La variable $X$ désigne le nombre de succès. La probabilité d'obtenir $x$ succès est donnée par:
+        $$p(x) = \left\{\begin{array}{ll} C_n^x p^x (1-p)^{n-x} & \text{si }x=0, 1, 2, \cdots, n \\ 0 & \text{autrement}\end{array}\right.\qquad \text{avec }C_n^x = \dfrac{n!}{x!(n-x)!}$$
+        </p>
+        <div style="text-align:center">
+            <img src="figures/fig_tp2_bin.png" alt="exercice 3-5a" style="width:70%">
+        </div>
+    </div>
+    <p></p>
+
+    <!--Question 3-5(b) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-5. </strong> Soit $X\sim Bi(n,p)$.</p>
+            <ol class="alpha">
+                <li class="hidden"></li>
+                <li> Si $n=20$ et $p=0.8$, calculez à l'aide des tables: </li>
+                <ol class="roman flex-ol">
+                    <li> $p(15)$ </li>
+                    <li> $F(15)$ </li>
+                    <li> $P(X > 10)$ </li>
+                    <li> $P(10 < X < 15 | X > 12)$ </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <p> Si $X\sim Bi(n,p)$, alors $Y=n-X\sim Bi(n,1-p)$ </p>
+    </div>
+    <p></p>
+
+    <!--Question 3-6(b,c) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p> <strong>3-6. </strong> Soit $X$ une loi géométrique de paramètre $p = 0.4$. </p>
+            <ol class="alpha">
+                <li class="hidden"></li>
+                <li> Calculez</li>
+                <ol class="roman flex-ol">
+                    <li> $P(X \leq 4)$ </li>
+                    <li> $P(2\leq X < 6)$ </li>
+                    <li> $P(X \leq 5 | X > 2)$ </li>
+                </ol>
+                <li> Trouvez la plus petite valeur de $x$ telle que $P(X > x) < 0.1$. </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi géométrique $X\sim Ge(p)$</h3>
+        <p> On répète une expérience aléatoire avec probabilité de succès $p$ de façon indépendante jusqu'à obtenir un succès. La variable $X$ est le nombre de répétitions jusqu'au premier succès.
+        $$\begin{align}
+        p(x) &= \left\{\begin{array}{ll} p(1-p)^{x-1} & \text{si }x=1, 2,\cdots \\ 0 & \text{autrement}\end{array}\right. \\
+        F(x) &= 1 - (1-p)^x\quad x = 1, 2, \cdots
+        \end{align}$$
+        </p>
+    </div>
+    <p></p>
+
+
+    <!--Question 3-7(b) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-7. </strong> Soit $X$ une loi de Pascal de paramètres $k$ et $p$.</p>
+            <ol class="alpha">
+                <li class="hidden"></li>
+                <li> pour $k=3$ et $p=0.5$, calculez: </li>
+                <ol class="roman flex-ol">
+                    <li> $P(X \leq 5)$ </li>
+                    <li> $P(X = 4)$ </li>
+                    <li> $P(X > 6 | X > 4)$ </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi de Pascal $X\sim Pa(k,p)$</h3>
+        <p> On répète une expérience aléatoire avec probabilité de succès $p$ de façon indépendante jusqu'à obtenir $k$ succès. La variable $X$ est le nombre de répétitions jusqu'au $k$<sup>ème</sup> succès.
+        $$p(x) = \left\{\begin{array}{ll} C_{x-1}^{k-1} p^k (1-p)^{x-k} & \text{si }x=k, k+1, \cdots \\ 0 & \text{autrement}\end{array}\right.\qquad \text{avec }C_{x-1}^{k-1} = \dfrac{(x-1)!}{(k-1)!(x-k)!}$$
+        </p>
+        <p> Formule de récurrence: $$\left\{\begin{array}{ll} p(k) &= p^k \\ p(x) &= (1-p)\dfrac{x-1}{x-k}p(x-1) \qquad \text{pour }x > k \end{array}\right.$$ </p>
+    </div>
+    <p></p>
+
+    <!--Question 3-8(b) -->
+
+    <div class="question">
+        <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
+        <div class="question-content">
+            <p><strong>3-8. </strong> Soit $X$ une loi de Poisson de paramètre $\mu$.</p>
+            <ol class="alpha">
+                <li class="hidden"></li>
+                <li> pour $\mu=0.8$, calculez: </li>
+                <ol class="roman flex-ol">
+                    <li> $P(X \geq 1)$ </li>
+                    <li> $P(1 < X \leq 3)$ </li>
+                    <li> $P(X > 2 | X \leq 4)$ </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+
+    <div class="solution" style="display: none;">
+        <h3>Loi de Poisson $X\sim Po(\mu)$</h3>
+        <p> La variable $X$ est le nombre de réalisation d'un événement (avec un très faible probabilité de réalisation) sur un support (intervalle de temps, surface, volume). La probabilité d'observer $x$ occurrence est donnée par:
+        $$p(x) = \dfrac{e^{-\mu}\mu^x}{x!}$$
+        </p>
+        <p> Le paramètre $\mu$ (adimensionnel) est le produit d'une intensité $\lambda$ par la taille $S$ du support: $\mu=\lambda S$ </p>
+    </div>
+    <p></p>
+
+</body>
+</html>
