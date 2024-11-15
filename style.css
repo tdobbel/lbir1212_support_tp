@@ -20,6 +20,15 @@ body {
 .hidden {
     font-size: 0em;
 }
+.split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%
+}
+.split > div {
+    width: 48%;
+}
 li {
     margin-top: 0.2em;
     margin-bottom: 0.3em;

@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="display.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 <body>
 
@@ -30,8 +33,10 @@
             \sum_{i=1}^nh(x_i)p(x_i) & \text{cas discret} \\
             \int_{-\infty}^{\infty} h(x)f(x)dx & \text{cas continu}
         \end{array}\right.$$</p>
+        <p> L'espérance est un opérateur linéaire: $$\mathbb{E}[aX+b] = a\mathbb{E}[X]+b$$</p>
         <h3>Variance d'une variable $Y=h(X)$</h3>
         <p>$$Var[Y]=Var[h(X)]=\mathbb{E}[h^2(X)]-\mathbb{E}^2[h(X)]$$</p>
+        <p> La variance n'est pas un opérateur linéaire: $$Var[aX+b] = a^2Var[X]$$</p>
     </div>
     <p></p>
 
@@ -67,6 +72,22 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3>Fonction $h(\cdot)$ quelconque</h3>
+        </p> On identifie des événements $A$ et $B$ équivalents ($A \equiv B$) sur les variables $Y = h(X)$ et $X$. </p>
+        <div class="split">
+            <div>
+                <h4>Cas discret</h4>
+                <p>$$\left\{\begin{array}{l} A\equiv(Y=y) \\ B\equiv\{x: h(x)=y\} \end{array}\right.\Rightarrow p_Y(y) = \sum_{x\in B}p_X(x)$$</p>
+            </div>
+            <div>
+                <h4>Cas continu</h4>
+                <p>$$\left\{\begin{array}{l} A\equiv(Y\leq y) \\ B\equiv\{x: h(x)\leq y\} \end{array}\right.\Rightarrow F_Y(y) = \int_{x\in B}f_X(x)dx$$</p>
+                <p>Rappel: $\quad f_Y(y) = \dfrac{dF_Y(y)}{dy}$</p>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <img src="figures/question_5-4.png" style="width:70%">
+        </div>
     </div>
     <p></p>
 
@@ -80,6 +101,22 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3>Espérance et variance d'une loi uniforme</h3>
+        <p>$$X\sim Un(a,b) \Rightarrow \mathbb{E}[X] = \dfrac{b+a}{2}, Var[X] = \dfrac{(b-a)^2}{12}$$</p>
+        <h3>Approximation d'une loi par une autre</h3>
+        <div style="text-align: center">
+            <img src="figures/approx_black.png" style="width:70%">
+        </div>
+        <h3> Testons la théorie (spoiler Q2)</h3>
+<pre><code class="python">import numpy as np
+from numpy.typing import NDArray
+
+def eval_error(n_sample: int = 1) -> NDArray:
+    return np.random.uniform(-0.5, 0.5, size=(n_sample,50)).sum(axis=1)</code></pre>
+
+    <div style="text-align: center">
+        <img src="figures/anim_5-5_optimized.gif" style="width:65%">
+    </div>
     </div>
     <p></p>
 </body>

@@ -158,12 +158,13 @@
         <h3> Approximation d'une loi par une autre</h3>
         <div style="text-align:center">
             <img style="width: 70%" src="figures/approx_black.png">
+            <img style="width: 60%" src="figures/approx_3-18.png">
         </div>
        <p> Quand les tables ne sont pas assez précises, Python (ou R) est votre ami.</p>
 <pre><code class="python" data-trim data-line-numbers>from math import sqrt
 from scipy.stats import norm
 
-print(1-norm.cdf(32, loc=40, scale=sqrt(10))
+print(1-norm.cdf(32, loc=20, scale=sqrt(10))
 # 7.390115516725526e-05</code></pre>
     </div>
     <p></p>
