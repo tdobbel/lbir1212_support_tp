@@ -56,9 +56,24 @@
         </div>
     </div>
 
-    <div class="solution" style="display: none;">
+    <div class="solution" style="display: block;">
         <h3>Fonction $h(\cdot)$ strictement monotone ($\nearrow$ or $\searrow$)</h3>
         <p>$$f_{Y}(y) = f_X(h^{-1}(y))\left|\dfrac{dh^{-1}(y)}{dy}\right|$$</p>
+        <h3> 2 résolutions alternatives </h3>
+        <div class="split">
+            <div style="text-align:center">
+                <img style="width:80%" src="figures/question_5-3e.png">
+            </div>
+            <div>
+                <h4> Formule pour $h(\cdot)$ strictement monotone</h4>
+                <p>$$f_Y(y) = 1 \cdot \left|\dfrac{d(e^{-y/5})}{dy}\right| = \dfrac{e^{-y/5}}{5}$$</p>
+                <h4> Cas général </h4>
+                <p>$$\begin{align}
+                    F_Y(y) &= \int_{e^{-y/5}}^{1}1~dx = 1-e^{-y/5} \\
+                    f_Y(y) &= \dfrac{dF_Y(y)}{dy} = \dfrac{1}{5}e^{-y/5}
+                \end{align}$$</p>
+            </div>
+        </div>
     </div>
     <p></p>
 
