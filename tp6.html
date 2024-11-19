@@ -16,7 +16,7 @@
         <div class="display-button-div"> <button onclick="toggleDisplay(this)">&#9660;</button> </div>
         <div class="question-content">
             <p><strong>6-2. </strong> Soit un couple aléatoire $(X, Y)$ avec $p(x, y)$ donné par :
-            $$p(x,)=\left\{\begin{array}{ll}k/xy & x=1,2,3 \quad y=1,2 \\ 0 & \text{ailleurs}\end{array}\right.$$
+            $$p(x,y)=\left\{\begin{array}{ll}k/xy & x=1,2,3 \quad y=1,2 \\ 0 & \text{ailleurs}\end{array}\right.$$
             </p>
             <ol class="alpha">
                 <li> Déterminez la valeur de $k$ </li>
@@ -33,6 +33,45 @@
     </div>
 
     <div class="solution" style="display: none">
+        <h3> Distributions marginales </h3>
+        <h4> Fonctions de répartition marginales </h4>
+        <p>$$\begin{align}
+            F_X(x) &= P(X \leq x) = F(x, \infty) \\
+            F_Y(y) &= P(Y \leq y) = F(\infty, y)
+        \end{align}$$</p>
+        <h4> Fonctions de probabilité marginales </h4>
+        <p>$$p_X(x) = \sum_{j} p(x, y_j) \quad p_Y(y) = \sum_{i} p(x_i, y)$$</p>
+        <h4> Fonctions de densité de probabilité marginales </h4>
+        <p>$$f_X(x) = \int_{-\infty}^{\infty} f(x, y) \, dy \quad f_Y(y) = \int_{-\infty}^{\infty} f(x, y) \, dx$$</p>
+        <h3> Indépendance </h3>
+        <p>$$X\perp Y \Leftrightarrow \left\{\begin{array}{l}
+            f(x, y) = f_X(x)f_Y(y) \\
+            p(x, y) = p_X(x)p_Y(y)
+        \end{array}\right.\quad \forall (x,y)\in\mathbb{R}^2$$</p>
+        <div class="split">
+            <div style="text-align:center">
+                <img src="figures/question_6-2.png" style="width: 80%;">
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content: center">
+                <table style="margin:auto">
+                    <tr class="top-row">
+                        <td class="left-col"> $x$ \ $y$ </td> <td> $1$ </td> <td> $2$ </td> <td class="right-col"> $p_X(x)$ </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $1$ </td> <td> $0.3636$ </td> <td> $0.1818$ </td> <td class="right-col"> $0.5455$ </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $2$ </td> <td> $0.1818$ </td> <td> $0.0909$ </td> <td class="right-col"> $0.2727$ </td>
+                    </tr>
+                    <tr class="top-row">
+                        <td class="left-col"> $3$ </td> <td> $0.1212$ </td> <td> $0.0606$ </td> <td class="right-col"> $0.1818$ </td>
+                    </tr>
+                    <tr>
+                        <td class="left-col"> $p_Y(y)$ </td> <td> $0.6666$ </td> <td>$0.3333$ </td> <td class="right-col"> $1.0$ </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     <p></p>
 
@@ -64,6 +103,38 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3>Distributions conditionnelles</h3>
+        <div class="split">
+            <div>
+                <h4> Cas discret </h4>
+                <p> Soient $X$ et $Y$ deux variables aléatoires. Soient $A\equiv(X=x)$ et $B\equiv(Y=y)$.</p>
+                <p> Les fonctions de probabilité conditionnelles sont $$\begin{align}
+                    p_X(x|y) = P(A|B) &= \dfrac{P(A\cap B)}{P(B)} = \dfrac{p(x, y)}{p_Y(y)}\quad\text{avec }p_Y(y) > 0 \\
+                    p_Y(y|x) = P(B|A) &= \dfrac{P(A\cap B)}{P(A)} = \dfrac{p(x, y)}{p_X(x)}\quad\text{avec }p_X(x) > 0
+                \end{align}$$</p>
+                <p> On définit aussi les fonctions de répartition conditionnelles
+                    $$ F_x(x|y) = \sum_{x_i\leq x} p_X(x_i|y) \quad\quad F_Y(y|x) = \sum_{y_j\leq y} p_X(y_j|x)$$
+                </p>
+            </div>
+            <div>
+                <h4> Cas continu </h4>
+                <p> Les fonctions de densité de probabilité conditionnelles sont: $$\begin{array}{ll}
+                    f_X(x|y) = \dfrac{f(x,y)}{f_Y(y)} & \text{avec }f_Y(y) > 0 \\
+                    f_Y(y|x) = \dfrac{f(x,y)}{f_X(x)} & \text{avec }f_X(x) > 0
+                \end{array}$$</p>
+                <p> Les fonctions de répartition conditionnelles sont
+                    $$F_X(x|y) = \int_{-\infty}^x f_X(t|y) \, dt \quad\quad F_Y(y|x) = \int_{-\infty}^y f_Y(u|x) \, du$$
+                </p>
+            </div>
+        </div>
+        <div class="split">
+            <div style="text-align:center">
+                <img src="figures/question_6-3a.png" style="width: 80%;">
+            </div>
+            <div style="text-align:center">
+                <img src="figures/question_6-3b.png" style="width: 80%;">
+            </div>
+        </div>
     </div>
     <p></p>
 
@@ -93,6 +164,21 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3>Covariance $Cov[X,Y]$</h3>
+        <p>$$\begin{align}
+            Cov[X,Y] = \sigma_{XY} &= \left\{\begin{array}{l}
+            \sum_i\sum_j (x_i-\mu_X)(y_j-\mu_Y)p(x_i,y_j) \\
+            \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} (x-\mu_X)(y-\mu_Y)f(x,y) \, dx \, dy
+            \end{array}\right. \\  &= \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]\end{align}$$</p>
+        <p> $X\perp Y \Rightarrow \sigma_{XY}=0$ <strong>MAIS</strong> $\sigma_{XY} = 0 \nRightarrow X\perp Y$ </p>
+        <p> Le coefficient de corrélation est donné par $\rho_{XY} = \dfrac{\sigma_{XY}}{\sigma_X\sigma_Y}\quad(-1 \leq \rho_{XY} \leq 1)$</p>
+        <h3> Espérances et variances conditionnelles </h3>
+        <h4> Espérances conditionnelles</h4>
+        <p>$$
+        \mu_{Y|x} = \mathbb{E}[Y|x] = \left\{\begin{array}{l} \sum_jy_jp(y_j|x) \\ \int_{-\infty}^{+\infty}yf_Y(y|x)dy\end{array}\right.\quad
+        \mu_{X|y} = \mathbb{E}[X|y] = \left\{\begin{array}{l} \sum_ix_ip(x_i|y) \\ \int_{-\infty}^{+\infty}xf_X(x|y)dx\end{array}\right.
+        $$</p>
+        <p> $\mathbb{E}[Y|x]$ est aussi appelée <strong>régression</strong> de $Y$ sur $x$ et $\mathbb{E}[X|y]$ est aussi appelée <strong>régression</strong> de $X$ sur $y$.</p>
     </div>
     <p></p>
 

@@ -73,6 +73,12 @@ td {
 .left-col {
     border-right: 1px solid;
 }
+.right-col {
+    border-left: 1px solid;
+}
+.top-row {
+    border-bottom: 1px solid;
+}
 button {
     border: none;
     background-color: transparent;
