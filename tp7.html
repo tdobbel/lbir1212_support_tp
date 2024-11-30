@@ -30,6 +30,10 @@
     </div>
 
     <div class="solution" style="display: none">
+        <div>
+            <h4>Rappel</h4>
+            <p>$$\left\{\begin{array}{l} A\equiv(Y\leq y) \\ B\equiv\{x: h(x)\leq y\} \end{array}\right.\Rightarrow F_Y(y) = \int_{x\in B}f_X(x)dx$$</p>
+        </div>
     </div>
     <p></p>
 
@@ -41,7 +45,8 @@
             <p> <strong>6-22. </strong> Pour une race de vache et des conditions d’élevage données, les productions laitières au cours des lactations successives forment un vecteur aléatoire normal. Pour les deux premières lactations, les productions (en milliers de litres) sont données par :
             $$\begin{pmatrix}X_1 \\ X_2\end{pmatrix} \sim N\left(\begin{pmatrix}4.2 \\ 4.4\end{pmatrix}, \begin{pmatrix}0.035 & 0.022 \\ 0.022 & 0.019\end{pmatrix}\right)$$
             </p>
-            <p> Pour une race de vache et des conditions d’élevage données, les productions laitières au cours des lactations successives forment un vecteur aléatoire normal. Pour les deux premières lactations, les productions (en milliers de litres) sont données par :</p>
+            <p> Une vache est réformée (jugée inapte et écartée) après la première lactation si sa␍
+production laitière ne dépasse pas un seuil jugé rentable.</p>
             <ol class="alpha">
                 <li> Quel est le coefficient de corrélation entre les deux lactations ? </li>
                 <li> On veut réformer 5% des vaches ; quel seuil de production faut-il considérer ? </li>
@@ -54,6 +59,45 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3>Couple aléatoire $\mathbf{X}\sim N(\mathbf{\mu}, \mathbf{\Sigma})$</h3>
+        <p>$$
+            \mathbf{X}=\begin{pmatrix}X_1 \\ X_2\end{pmatrix} \quad
+            \mathbf{\mu} = \begin{pmatrix}\mu_{X_1} \\ \mu_{X_2}\end{pmatrix} \quad
+            \mathbf{\Sigma} = \begin{pmatrix}\sigma_{X_1}^2  & \sigma_{X_1X_2} \\ \sigma_{X_1X_2} &  \sigma_{X_2}^2\end{pmatrix}
+        $$</p>
+        <p> Les distributions marginales sont des lois normales $$\left\{\begin{array}{l}
+            X_1\sim N(\mu_{X_1},\sigma_{X_1}^2) \\
+            X_2\sim N(\mu_{X_2},\sigma_{X_2}^2)
+        \end{array}\right.$$</p>
+        <p> Les distributions conditionnelles sont des lois normales $$\left\{\begin{array}{l}
+            X_2|x_1\sim N(\mu_{X_2|x_1},\sigma_{X_2|x_1}^2) \\
+            X_1|x_2\sim N(\mu_{X_1|x_2},\sigma_{X_1|x_2}^2)
+        \end{array}\right.$$</p>
+        <p> Les espérances conditionnelles sont données par
+        $$\left\{\begin{array}{l}
+            \mathbb{E}[X_2|x_1] = \mu_{X_2|x_1} = \mu_{X_2} + \rho\dfrac{\sigma_{X_2}}{\sigma_{X_1}}(x_1-\mu_{X_1}) \\
+            \mathbb{E}[X_1|x_2] = \mu_{X_1|x_2} = \mu_{X_1} + \rho\dfrac{\sigma_{X_1}}{\sigma_{X_2}}(x_2-\mu_{X_2})
+        \end{array}\right.$$</p>
+        <p> Les variances conditionnelles sont données par
+        $$\left\{\begin{array}{l}
+            Var[X_2|x_1] = \sigma_{X_2|x_1}^2 = \sigma_{X_2}^2(1-\rho^2) \\
+            Var[X_1|x_2] = \sigma_{X_1|x_2}^2 = \sigma_{X_1}^2(1-\rho^2)
+        \end{array}\right.$$</p>
+        <h3> Fonction linéaire d'un vecteur aléatoire </h3>
+        <p>Soit un vecteur aléatoire $X\sim N(\mathbf{\mu}, \mathbf{\Sigma})$.
+        \begin{equation}
+            Y = \mathbf{a}\mathbf{X} + b \Rightarrow \left\{\begin{array}{l}
+                \mu_Y = \mathbf{a}\mathbf{\mu} + b  = \sum_i a_i\mu_{X_i} + b \\
+                \sigma_Y^2 = \mathbf{a}\mathbf{\Sigma}\mathbf{a}' = \sum_i\sum_j a_ia_jCov[X_i, X_j]
+            \end{array}\right.
+        \end{equation}
+        </p>
+        <h3> Loi binomiale: formule de récurrence </h3>
+        <p>$$\left\{\begin{array}{l}
+        p(0) = (1-p)^n \\
+        p(x) = p(x-1)\left(\dfrac{p}{1-p}\right)\left(\dfrac{n-x+1}{x}\right)
+        \end{array}\right.$$</p>
+
     </div>
     <p></p>
 
@@ -95,6 +139,25 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <h3> Fonction linéaire d'un vecteur aléatoire </h3>
+        <p>Soit un vecteur aléatoire $X\sim N(\mathbf{\mu}, \mathbf{\Sigma})$.
+        \begin{equation}
+            \mathbf{Y} = \mathbf{A}\mathbf{X} + \mathbf{b} \Rightarrow \left\{\begin{array}{l}
+                \mathbf{\mu}_\mathbf{Y} = \mathbf{A}\mathbf{\mu}_{\mathbf{X}} + \mathbf{b}\\
+                \mathbf{\Sigma}_\mathbf{Y} = \mathbf{A}\mathbf{\Sigma}_{\mathbf{X}}\mathbf{A}'
+            \end{array}\right.
+        \end{equation}
+        </p>
+        <h3>Indépendance</h3>
+        <p>\begin{equation}
+            X_1\perp \cdots \perp X_n \Leftrightarrow \mathbf{\Sigma}=\mathbf{S}^2 = \begin{pmatrix}
+                \sigma^2_{X_1} & 0 & \cdots & 0 \\
+                0 & \sigma^2_{X_2} & \cdots & 0 \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0 & 0 & \cdots & \sigma^2_{X_n}
+            \end{pmatrix}
+        \end{equation}</p>
+        <p>	&#9888; Cette équivalence est uniquement valable pour un vecteur <strong>normal</strong> !</p>
     </div>
     <p></p>
 </body>
