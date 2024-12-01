@@ -14,3 +14,11 @@ function toggleDisplay(button) {
         button.innerHTML = "&#9660;";
     }
 }
+
+function toggleAll() {
+    let divs = document.getElementsByClassName("display-button-div");
+    for (let div of divs) {
+        let button = div.firstElementChild;
+        toggleDisplay(button);
+    }
+}
