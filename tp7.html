@@ -33,6 +33,9 @@
         <div>
             <h4>Rappel</h4>
             <p>$$\left\{\begin{array}{l} A\equiv(Y\leq y) \\ B\equiv\{x: h(x)\leq y\} \end{array}\right.\Rightarrow F_Y(y) = \int_{x\in B}f_X(x)dx$$</p>
+            <div style="text-align:center">
+                <img src="figures/question_6-21.png" style="width:40%">
+            </div>
         </div>
     </div>
     <p></p>
@@ -59,30 +62,43 @@ production laitière ne dépasse pas un seuil jugé rentable.</p>
     </div>
 
     <div class="solution" style="display: none;">
+        <div style="text-align:center">
+            <img src="figures/question_6-22.png", style="width:40%">
+        </div>
         <h3>Couple aléatoire $\mathbf{X}\sim N(\mathbf{\mu}, \mathbf{\Sigma})$</h3>
         <p>$$
             \mathbf{X}=\begin{pmatrix}X_1 \\ X_2\end{pmatrix} \quad
             \mathbf{\mu} = \begin{pmatrix}\mu_{X_1} \\ \mu_{X_2}\end{pmatrix} \quad
             \mathbf{\Sigma} = \begin{pmatrix}\sigma_{X_1}^2  & \sigma_{X_1X_2} \\ \sigma_{X_1X_2} &  \sigma_{X_2}^2\end{pmatrix}
         $$</p>
-        <p> Les distributions marginales sont des lois normales $$\left\{\begin{array}{l}
-            X_1\sim N(\mu_{X_1},\sigma_{X_1}^2) \\
-            X_2\sim N(\mu_{X_2},\sigma_{X_2}^2)
-        \end{array}\right.$$</p>
-        <p> Les distributions conditionnelles sont des lois normales $$\left\{\begin{array}{l}
-            X_2|x_1\sim N(\mu_{X_2|x_1},\sigma_{X_2|x_1}^2) \\
-            X_1|x_2\sim N(\mu_{X_1|x_2},\sigma_{X_1|x_2}^2)
-        \end{array}\right.$$</p>
-        <p> Les espérances conditionnelles sont données par
-        $$\left\{\begin{array}{l}
-            \mathbb{E}[X_2|x_1] = \mu_{X_2|x_1} = \mu_{X_2} + \rho\dfrac{\sigma_{X_2}}{\sigma_{X_1}}(x_1-\mu_{X_1}) \\
-            \mathbb{E}[X_1|x_2] = \mu_{X_1|x_2} = \mu_{X_1} + \rho\dfrac{\sigma_{X_1}}{\sigma_{X_2}}(x_2-\mu_{X_2})
-        \end{array}\right.$$</p>
-        <p> Les variances conditionnelles sont données par
-        $$\left\{\begin{array}{l}
-            Var[X_2|x_1] = \sigma_{X_2|x_1}^2 = \sigma_{X_2}^2(1-\rho^2) \\
-            Var[X_1|x_2] = \sigma_{X_1|x_2}^2 = \sigma_{X_1}^2(1-\rho^2)
-        \end{array}\right.$$</p>
+        <p> Les distributions marginales et conditionnelles sont des lois normales </p>
+        <div class="split">
+            <div>
+                <p>$$\left\{\begin{array}{l}X_1\sim N(\mu_{X_1},\sigma_{X_1}^2) \\
+                X_2\sim N(\mu_{X_2},\sigma_{X_2}^2) \end{array}\right.$$</p>
+            </div>
+            <div>
+                <p>$$\left\{\begin{array}{l}
+                    X_2|x_1\sim N(\mu_{X_2|x_1},\sigma_{X_2|x_1}^2) \\
+                    X_1|x_2\sim N(\mu_{X_1|x_2},\sigma_{X_1|x_2}^2)
+                \end{array}\right.$$</p>
+            </div>
+        </div>
+            <p> Les espérances et variances conditionnelles sont données par</p>
+        <div class="split">
+            <div>
+                <p>$$\left\{\begin{array}{l}
+                    \mathbb{E}[x_2|x_1] = \mu_{x_2|x_1} = \mu_{x_2} + \rho\dfrac{\sigma_{x_2}}{\sigma_{x_1}}(x_1-\mu_{x_1}) \\
+                    \mathbb{E}[x_1|x_2] = \mu_{x_1|x_2} = \mu_{x_1} + \rho\dfrac{\sigma_{x_1}}{\sigma_{x_2}}(x_2-\mu_{x_2})
+                \end{array}\right.$$</p>
+            </div>
+            <div>
+                <p>$$\left\{\begin{array}{l}
+                    Var[X_2|x_1] = \sigma_{X_2|x_1}^2 = \sigma_{X_2}^2(1-\rho^2) \\
+                    Var[X_1|x_2] = \sigma_{X_1|x_2}^2 = \sigma_{X_1}^2(1-\rho^2)
+                \end{array}\right.$$</p>
+            </div>
+        </div>
         <h3> Fonction linéaire d'un vecteur aléatoire </h3>
         <p>Soit un vecteur aléatoire $X\sim N(\mathbf{\mu}, \mathbf{\Sigma})$.
         \begin{equation}
@@ -92,6 +108,13 @@ production laitière ne dépasse pas un seuil jugé rentable.</p>
             \end{array}\right.
         \end{equation}
         </p>
+        <p>Example: $Y=X_1+X_2\Rightarrow \mathbf{a} = (1,1)$ et $b=0$</p>
+        <p>$$\left\{\begin{array}{ll}
+            \mu_Y  & = a_1\mu_{X_1} + a_2\mu_{X_2} + b\\
+             & = \mu_{X_1} + \mu_{X_2} \\
+            \sigma_Y^2 & = a_1a_1 Cov[X_1,X_1]+ a_1a_2 Cov[X_1,X_2] + a_2a_1Cov[X_2, X_1] + a_2a_2 Cov[X_2,X_2] \\
+            & = \sigma_{X_1}^2 + \sigma_{X_2}^2 + 2Cov[X_1, X_2]
+        \end{array}\right.$$</p>
         <h3> Loi binomiale: formule de récurrence </h3>
         <p>$$\left\{\begin{array}{l}
         p(0) = (1-p)^n \\
@@ -115,6 +138,9 @@ production laitière ne dépasse pas un seuil jugé rentable.</p>
     </div>
 
     <div class="solution" style="display: none;">
+        <div style="text-align:center">
+            <img src="figures/question_6-34.png" style="width:40%">
+        </div>
     </div>
     <p></p>
 
