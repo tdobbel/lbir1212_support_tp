@@ -22,3 +22,9 @@ function toggleAll() {
         toggleDisplay(button);
     }
 }
+
+window.onkeydown = function (e) {
+    if (e.keyCode == 17) {
+        toggleAll();
+    }
+}
