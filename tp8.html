@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="display.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 <body>
 
@@ -25,6 +28,15 @@
     </div>
 
     <div class="solution" style="display: none">
+        <p>$\rho_{X_iX_j} = \dfrac{\sigma_{X_iX_j}}{\sigma_{X_i}\sigma_{X_j}}\Rightarrow \sigma_{X_iX_j} = \rho_{X_iX_j}\sigma_{X_i}\sigma_{X_i}$ ou $\mathbf{\Sigma} = \mathbf{S}\mathbf{R}\mathbf{S}$ </p>
+        <p>Soit un vecteur aléatoire $X\sim N(\mathbf{\mu}, \mathbf{\Sigma})$.
+        \begin{equation}
+            \mathbf{Y} = \mathbf{A}\mathbf{X} + \mathbf{b} \Rightarrow \left\{\begin{array}{l}
+                \mathbf{\mu}_\mathbf{Y} = \mathbf{A}\mathbf{\mu}_{\mathbf{X}} + \mathbf{b}\\
+                \mathbf{\Sigma}_\mathbf{Y} = \mathbf{A}\mathbf{\Sigma}_{\mathbf{X}}\mathbf{A}'
+            \end{array}\right.
+        \end{equation}
+        </p>
     </div>
     <p></p>
 
@@ -47,6 +59,9 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <p> Formule de la variance: $Var[Y_i] = \mathbf{E}[Y_i^2] - \mathbf{E}[Y_i]^2 \Rightarrow \mathbf{E}[Y_i^2] = \sigma_{Y_i}^2 + \mu_{Y_i}^2$</p>
+        <p> Distribution conditionnelle d'un vecteur normal $X_j|x_i\sim N(\mu_{X_j|x_i},\sigma_{X_j|x_i}^2)$, avec: </p>
+        <p> $$\mu_{X_j|x_i} = \mu_{X_j} + \rho_{X_iX_j}{}\dfrac{\sigma_{X_j}}{\sigma_{X_i}}(x_i-\mu_{X_i}) \qquad\qquad \sigma_{X_j|x_i}^2 = \sigma_{X_j}^2(1-\rho_{X_iX_j}{}^2)$$ </p>
     </div>
     <p></p>
 
@@ -64,14 +79,17 @@
             \end{pmatrix}$$
             </p>
             <ol class="alpha">
-                <li> Calculez la probabilité que $X_1 − X_2$ soit inférieur à $12.25$. </li>
-                <li> Calculez le coefficient de corrélation entre $X_1 + X_2$ et $X_3 + X_4$. </li>
-                <li> Quelle est la valeur attendue de $X_4$ lorsque $X_2 = 39.6$ ? </li>
+                <li> Calculez la probabilité que $X_3 − X_1$ soit inférieur à $12.25$. </li>
+                <li> Calculez le coefficient de corrélation entre $X_1 + X_3$ et $X_2 + X_4$. </li>
+                <li> Quelle est la valeur attendue de $X_4$ lorsque $X_3 = 39.6$ ? </li>
             </ol>
         </div>
     </div>
 
     <div class="solution" style="display: none;">
+        <div style="text-align:center">
+            <img src="figures/question_7-9.png" style="width:40%">
+        </div>
     </div>
     <p></p>
 
@@ -113,6 +131,63 @@
     </div>
 
     <div class="solution" style="display: none;">
+        <div style="text-align:center">
+            <img src="figures/question_7-10.png" style="width:40%">
+        </div>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+from numpy.typing import NDArray
+
+class NormalVectorDistribution:
+
+    def __init__(self, mu: NDArray, sigma: NDArray) -> None:
+        self.mu = mu
+        self.sigma = sigma
+        assert mu.size == sigma.shape[0] == sigma.shape[1]
+        self.inv_sigma = np.linalg.inv(sigma)
+        self.det_sigma = np.linalg.det(sigma)
+
+    def __call__(self, *args: NDArray) -> NDArray:
+        n = len(args)
+        xs = np.stack(args, axis=-1)
+        shape = xs.shape[:-1]
+        xs = xs.reshape(-1,n)
+        factor = 1/np.sqrt(self.det_sigma*(2*np.pi)**n)
+        xm = xs - self.mu[None]
+        pdf = factor * np.exp(-0.5*np.sum(xm.T*np.dot(self.inv_sigma,xm.T), axis=0))
+        return pdf.reshape(shape)
+
+mu_X = np.array([53, 35, 68, 42])
+var_X = np.array([150, 87, 246, 125], dtype=float)
+sigma_X = np.diag(var_X)
+sigma_X[0,1] = sigma_X[1,0] = 0.8 * np.sqrt(var_X[0]*var_X[1])
+sigma_X[0,2] = sigma_X[2,0] = 0.4 * np.sqrt(var_X[0]*var_X[2])
+sigma_X[1,2] = sigma_X[2,1] = 0.5 * np.sqrt(var_X[1]*var_X[2])
+sigma_X[0,3] = sigma_X[3,0] = 0.2 * np.sqrt(var_X[0]*var_X[3])
+sigma_X[2,3] = sigma_X[3,2] = 0.9 * np.sqrt(var_X[2]*var_X[3])
+sigma_X[1,3] = sigma_X[3,1] = 0.4 * np.sqrt(var_X[1]*var_X[3])
+A = np.array([
+    [0.25, 0.25, 0.25, 0.25],
+    [-1.0,  0.0,  0.0,  1.0]
+])
+mu_Y = A @ mu_X
+sigma_Y = A @ sigma_X @ A.T
+n = 200
+amp = 0.3*sigma_Y.max()
+xs = np.linspace(mu_Y[0]-amp, mu_Y[0]+amp, n+1)
+ys = np.linspace(mu_Y[1]-amp, mu_Y[1]+amp, n+1)
+f = NormalVectorDistribution(mu_Y, sigma_Y)
+xg, yg = np.meshgrid(xs, ys)
+zg = f(xg, yg)
+
+fig, ax = plt.subplots(figsize=(8,6), subplot_kw=dict(projection='3d'))
+ax.plot_surface(xg, yg, zg, alpha=.8, cmap='plasma')
+ax.set_xlabel(r'$y_1$', fontsize=15)
+ax.set_ylabel(r'$y_2$', fontsize=15)
+
+plt.show()
+</code></pre>
+
     </div>
     <p></p>
 </body>
